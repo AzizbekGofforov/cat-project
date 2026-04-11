@@ -1,9 +1,8 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import HomePage from "./components/Main/HomePage";
-import ProductListPage from "./components/Main/ProductListPage";
-import ProductDetailPage from "./components/Main/ProductDetailPage";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import MainLayout from './layout/MainLayout';
+import Home from './pages/Home';
+import Checkout from './pages/Checkout';
 
 function AppShell() {
   return (
@@ -11,10 +10,10 @@ function AppShell() {
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<ProductListPage />} />
-          <Route path="/products/:id" element={<ProductDetailPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="/" element={<MainLayout />}>
+                <Route index element={<Home />} />
+                <Route path="checkout/:id" element={<Checkout />} />
+            </Route>
         </Routes>
       </main>
       <Footer />
