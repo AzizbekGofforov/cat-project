@@ -6,11 +6,11 @@ const Vet = () => {
   return (
     <section className="w-full bg-white py-6 lg:py-20 ">
       <div className="container mx-auto px-4">
-        
-        <div className="relative w-full bg-[#ff9800] rounded-[16px] lg:rounded-[40px] 
+        <div
+          className="relative w-full bg-[#ff9800] rounded-[16px] lg:rounded-[40px] 
         p-6 lg:p-12 flex items-center min-h-[260px] lg:min-h-[360px] 
-        overflow-visible shadow-2xl">
-
+        overflow-visible shadow-2xl"
+        >
           {/* MATN */}
           <div className="w-full lg:w-1/2 space-y-4 z-20">
             <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-black leading-[1.1]">
@@ -32,17 +32,13 @@ const Vet = () => {
           </div>
 
           {/* MUSHUK */}
-          <div className="hidden lg:block absolute right-[-51px] bottom-[-40px] w-[42%] overflow-hidden">
+          <div className="hidden lg:block absolute right-0 bottom-0 w-[40%] max-w-[500px] overflow-hidden pointer-events-none">
             <img
               src={vetImg}
               alt="cat"
-              className="w-full  
-              translate-y-6 
-              -translate-y-6 
-              scale-80"
+              className="w-full h-auto object-contain translate-y-4 scale-95 transition-all duration-700 hover:scale-100 hover:translate-y-0"
             />
           </div>
-
         </div>
       </div>
     </section>
