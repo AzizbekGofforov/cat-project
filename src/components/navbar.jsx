@@ -88,7 +88,9 @@ const Navbar = () => {
           
           {/* LOGO */}
           <div className="flex-shrink-0 cursor-pointer">
+            <a href="/">
             <img src={logo} alt="Logo" className="h-9 lg:h-14 w-auto" />
+            </a>
           </div>
 
           {/* DESKTOP SEARCH */}

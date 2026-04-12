@@ -31,7 +31,12 @@ export const productsApi = createApi({
     getProducts: builder.query({
       query: (params = {}) => ({
         url: "/products",
-        params,
+        params: {
+          ...params,
+          page: params.page ? Number(params.page) : 1,
+          limit: params.limit ? Number(params.limit) : 12,
+          ...(params.category_id ? { category_id: Number(params.category_id) } : {}),
+        },
       }),
       providesTags: (result) =>
         result?.data

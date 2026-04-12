@@ -1,13 +1,11 @@
 import axios from "axios";
 
-// 1. Base URL ni aniqlash
-const baseURL = import.meta.env.DEV
-  ? "/api"
-  : import.meta.env.VITE_API_URL;
+// VITE_API_URL bo'lsa o'shani oladi, bo'lmasa qo'lda yozilgan manzilni
+const API_URL = import.meta.env.VITE_API_URL || "https://e-commerce-api-v4.nt.azimumarov.uz";
 
-// 2. Axios instance yaratish
 const api = axios.create({
-  baseURL: baseURL, // Bu yerda yuqoridagi o'zgaruvchini ishlatish kerak
+  // Lokalda "/api" ishlatish (proxy uchun), Vercelda esa to'liq manzil
+  baseURL: import.meta.env.DEV ? "/api" : API_URL,
   headers: {
     "Content-Type": "application/json",
   },
