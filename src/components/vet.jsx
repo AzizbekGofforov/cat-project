@@ -38,11 +38,11 @@ const Vet = () => {
           </div>
 
           {/* MUSHUK */}
-          <div className="hidden lg:block absolute right-0 bottom-0 w-[40%] max-w-[500px] overflow-hidden pointer-events-none">
+          <div className="hidden lg:block absolute right-[-50px] bottom-0 w-[40%] max-w-[500px] overflow-hidden pointer-events-none">
             <img
               src={vetImg}
               alt="cat"
-              className="w-full h-auto object-contain translate-y-4 scale-95 transition-all duration-700 hover:scale-100 hover:translate-y-0"
+              className="w-full h-auto object-contain translate-y-4 scale-80 transition-all duration-700 hover:scale-100 hover:translate-y-0"
             />
           </div>
         </div>

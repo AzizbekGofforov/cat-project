@@ -9,7 +9,7 @@ import { useGetProductsQuery } from "../store/apis/productsApi";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const ProductSlider = () => {
+const ProductXit = () => {
   const { data, isLoading, isError } = useGetProductsQuery({
     limit: 10,
     page: 1,
@@ -32,7 +32,7 @@ const ProductSlider = () => {
         <div className="mb-8 flex items-center justify-between gap-4">
           <div>
             <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-900">
-              Акции
+              Хиты продаж
             </h2>
           </div>
           <Link
@@ -84,4 +84,4 @@ const ProductSlider = () => {
   );
 };
 
-export default ProductSlider;
+export default ProductXit;

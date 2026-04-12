@@ -1,20 +1,23 @@
 import React from "react";
-import { FaVk, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaVk, FaFacebookF, FaInstagram, FaTelegramPlane, FaYoutube } from "react-icons/fa";
 import { ArrowUp } from "lucide-react";
+
+const socials = [
+  { Icon: FaVk,            href: "https://vk.com/sytaya_morda",        label: "ВКонтакте", color: "hover:bg-[#4C75A3]" },
+  { Icon: FaInstagram,     href: "https://instagram.com/sytaya_morda", label: "Instagram",  color: "hover:bg-[#E1306C]" },
+  { Icon: FaTelegramPlane, href: "https://t.me/sytaya_morda",          label: "Telegram",   color: "hover:bg-[#229ED9]" },
+  { Icon: FaYoutube,       href: "https://youtube.com/@sytaya_morda",  label: "YouTube",    color: "hover:bg-[#FF0000]" },
+  { Icon: FaFacebookF,     href: "https://facebook.com/sytayamorda",   label: "Facebook",   color: "hover:bg-[#1877F2]" },
+];
 
 export default function Footer() {
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const openChat = () => {
-    alert("Chat ochiladi (bu yerga real chat ulash mumkin)");
-    // bu yerda masalan Telegram, WhatsApp yoki custom chat ulash mumkin
-    // window.open("https://t.me/yourbot", "_blank");
+    window.open("https://t.me/@i_sobirov5", "_blank");
   };
 
   return (
@@ -38,14 +41,20 @@ export default function Footer() {
             </button>
           </div>
 
+          {/* SOCIAL LINKS */}
           <div className="flex gap-3">
-            {[FaVk, FaFacebookF, FaInstagram].map((Icon, i) => (
-              <div
-                key={i}
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 cursor-pointer transition-all duration-300 hover:bg-orange-500 hover:text-white hover:border-orange-500"
+            {socials.map(({ Icon, href, label, color }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                title={label}
+                className={`w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-gray-500 transition-all duration-300 hover:text-white hover:border-transparent ${color}`}
               >
-                <Icon size={14} />
-              </div>
+                <Icon size={15} />
+              </a>
             ))}
           </div>
         </div>
@@ -102,9 +111,9 @@ export default function Footer() {
       {/* CHAT BUTTON */}
       <button
         onClick={openChat}
-        className="fixed bottom-6 right-6 w-12 h-12 bg-[#00AEEF] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-all duration-300"
+        className="fixed bottom-6 right-6 w-12 h-12 bg-[#229ED9] text-white rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-all duration-300"
       >
-        💬
+        <FaTelegramPlane size={22} />
       </button>
     </footer>
   );
