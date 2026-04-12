@@ -10,18 +10,8 @@ export default defineConfig({
       '/api': {
         target: 'https://e-commerce-api-v4.nt.azimumarov.uz',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
-})
-  server: {
-    proxy: {
-      "/api": {
-        target: "https://e-commerce-api-v4.nt.azimumarov.uz",
-        changeOrigin: true,
         secure: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path.replace(/^\/api/, ''),
       },
     },
   },
