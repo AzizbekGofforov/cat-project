@@ -79,11 +79,11 @@ export default function ProductDetail() {
         ) : (
           <div className="grid gap-4 sm:gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
             <div className="rounded-[1.5rem] border border-[#eadfcf] bg-white p-4 shadow-sm sm:rounded-[2rem] sm:p-6 lg:sticky lg:top-28">
-              <div className="flex aspect-square items-center justify-center overflow-hidden rounded-[1.25rem] bg-[#fff8ef] p-5 sm:rounded-[1.75rem] sm:p-8">
+              <div className="flex aspect-square items-center justify-center overflow-hidden rounded-[1.25rem] bg-[#fff8ef] sm:rounded-[1.75rem]">
                 <img
                   src={imageUrl}
                   alt={title}
-                  className="max-h-full max-w-full object-contain"
+                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
                 />
               </div>
 

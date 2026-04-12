@@ -14,16 +14,17 @@ import {
 } from "../../store/apis/productsApi";
 
 const quickTags = ["Влажный", "Сухой", "Холистик", "При аллергии", "Котятам"];
+const activeTags = ["Природные корма", "Консервы", "Взрослые"];
 
 const sidebarSections = [
   {
     title: "Тип",
     items: [
-      { label: "Породные корма", count: 20 },
+      { label: "Породные корма", count: 20, checked: true },
       { label: "Сухой корм", count: 435 },
       { label: "Премиум", count: 380 },
       { label: "Холистик", count: 194 },
-      { label: "Консервы", count: 443 },
+      { label: "Консервы", count: 443, checked: true },
       { label: "Влажный корм", count: 294 },
       { label: "Лечебный корм", count: 120 },
       { label: "Заменитель молока", count: 1 },
@@ -32,7 +33,7 @@ const sidebarSections = [
   {
     title: "Возраст",
     items: [
-      { label: "Взрослые", count: 20 },
+      { label: "Взрослые", count: 20, checked: true },
       { label: "Котята", count: 435 },
       { label: "Пожилые", count: 380 },
     ],
@@ -98,8 +99,7 @@ export default function ProductList() {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [activeTags, setActiveTags] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("1");
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -225,20 +225,11 @@ export default function ProductList() {
                 <button
                   key={tag}
                   type="button"
-                  onClick={() => setActiveTags(prev => prev.filter(t => t !== tag))}
-                  className="rounded-[4px] bg-[#ff9519] px-3 py-1.5 text-[14px] text-white transition hover:bg-[#ff8400]"
+                  className="rounded-[4px] bg-[#ff9519] px-3 py-1.5 text-[14px] text-white"
                 >
-                  {tag} <span className="ml-1 text-xs opacity-80">×</span>
+                  {tag} <span className="ml-1">×</span>
                 </button>
               ))}
-              {selectedCategory && (
-                <button
-                  onClick={() => setSelectedCategory("")}
-                  className="rounded-[4px] bg-[#ff9519] px-3 py-1.5 text-[14px] text-white transition hover:bg-[#ff8400]"
-                >
-                  Категория: {currentCategoryName} <span className="ml-1 text-xs opacity-80">×</span>
-                </button>
-              )}
             </div>
           </div>
 
@@ -251,14 +242,7 @@ export default function ProductList() {
             </button>
             <button
               type="button"
-              onClick={() => {
-                setSearch("");
-                setDebouncedSearch("");
-                setSelectedCategory("");
-                setActiveTags([]);
-                setPage(1);
-              }}
-              className="rounded-[4px] border border-[#ff9519] px-3 py-2 text-[14px] text-[#ff9519] transition hover:bg-[#fff7ed]"
+              className="rounded-[4px] border border-[#ff9519] px-3 py-2 text-[14px] text-[#ff9519]"
             >
               Сбросить фильтры ×
             </button>
